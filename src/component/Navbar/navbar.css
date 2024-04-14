@@ -27,3 +27,22 @@
   border-radius: 5px;
   color: white;
 }
+
+.search-bar {
+  position: relative;
+}
+
+.result-list {
+  position: absolute;
+  display: none;
+  background-color: whitesmoke;
+  width: 100%;
+  border-radius: 10px;
+}
+.autocomplete-result {
+  font-size: large;
+  color: black;
+  margin-top: 2px;
+  padding: 1rem;
+  border-bottom: 1px solid black;
+}
