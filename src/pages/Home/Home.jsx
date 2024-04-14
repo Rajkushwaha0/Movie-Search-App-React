@@ -6,10 +6,10 @@ import useMovieList from "../../hooks/useMovieList";
 function Home() {
   const { movieList } = useMovieList(
     "Avengers",
-    "Harry",
     "Prem",
     "Batman",
-    "mirzapur"
+    "mirzapur",
+    "dil bechara"
   );
   return (
     <>
