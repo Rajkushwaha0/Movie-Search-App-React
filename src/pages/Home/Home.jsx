@@ -6,6 +6,7 @@ import useMovieList from "../../hooks/useMovieList";
 function Home() {
   const { movieList } = useMovieList(
     "Avengers",
+    "spider man",
     "Prem",
     "Batman",
     "mirzapur",

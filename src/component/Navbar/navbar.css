@@ -46,9 +46,14 @@
 .autocomplete-result {
   font-size: large;
   color: black;
-  margin-top: 2px;
+
   padding: 1rem;
   border-bottom: 1px solid black;
+  cursor: pointer;
+}
+
+.result-list :hover {
+  background-color: rgb(220, 220, 220);
 }
 
 .result-list::-webkit-scrollbar {

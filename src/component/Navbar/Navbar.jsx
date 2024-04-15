@@ -3,12 +3,22 @@ import "./navbar.css";
 import { useRef, useState } from "react";
 import useMovieList from "../../hooks/useMovieList";
 import useDebounce from "../../hooks/useDebounce";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const resultRef = useRef(null);
   const titleRef = useRef(null);
+
+  const navigator = useNavigate();
+
   const [searchText, setSearchText] = useState("");
+
+  //custom hook
   const { movieList } = useMovieList(!searchText ? "Avengers" : searchText);
+
+  function handleAutoCompleteClick(e, id) {
+    navigator(`/movie/${id}`);
+  }
   return (
     <div className="navbar-wrapper">
       <div className="title-wrapper">
@@ -46,7 +56,11 @@ function Navbar() {
           </div>
           {movieList.length > 0 &&
             movieList.map((movie) => (
-              <div key={movie.imdbID} className="autocomplete-result">
+              <div
+                onMouseDown={(e) => handleAutoCompleteClick(e, movie.imdbID)}
+                key={movie.imdbID}
+                className="autocomplete-result"
+              >
                 {movie.Title}
               </div>
             ))}
