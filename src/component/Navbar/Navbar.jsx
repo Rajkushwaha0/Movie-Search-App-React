@@ -24,6 +24,16 @@ function Navbar() {
   function handleAutoCompleteClick(e, id) {
     navigator(`/movie/${id}`);
   }
+
+  function handleTheme() {
+    if (theme == "dark") {
+      setTheme("light");
+      localStorage.setItem("app-theme", "light");
+    } else {
+      setTheme("dark");
+      localStorage.setItem("app-theme", "dark");
+    }
+  }
   return (
     <div className="navbar-wrapper">
       <div className="title-wrapper">
@@ -71,7 +81,7 @@ function Navbar() {
             ))}
         </div>
       </div>
-      <div onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+      <div onClick={handleTheme}>
         <FontAwesomeIcon
           className="theme-icon"
           icon={theme === "dark" ? faSun : faMoon}

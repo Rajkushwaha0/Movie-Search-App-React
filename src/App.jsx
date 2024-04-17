@@ -4,10 +4,17 @@ import Navbar from "./component/Navbar/Navbar";
 import Mainroutes from "./routes/Mainroutes";
 
 import ThemeContext from "./context/ThemeContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    const userTheme = localStorage.getItem("app-theme");
+    if (userTheme != null) {
+      setTheme(userTheme);
+    }
+  }, []);
   return (
     <>
       <ThemeContext.Provider value={{ theme, setTheme }}>
