@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import "./navbar.css";
 import { useRef, useState } from "react";
+import { useContext } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import useMovieList from "../../hooks/useMovieList";
 import useDebounce from "../../hooks/useDebounce";
 import { useNavigate } from "react-router-dom";
+import ThemeContext from "../../context/ThemeContext";
 
 function Navbar() {
   const resultRef = useRef(null);
@@ -12,6 +16,7 @@ function Navbar() {
   const navigator = useNavigate();
 
   const [searchText, setSearchText] = useState("");
+  const { theme, setTheme } = useContext(ThemeContext);
 
   //custom hook
   const { movieList } = useMovieList(!searchText ? "Avengers" : searchText);
@@ -66,7 +71,12 @@ function Navbar() {
             ))}
         </div>
       </div>
-      <div>Theme</div>
+      <div onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+        <FontAwesomeIcon
+          className="theme-icon"
+          icon={theme === "dark" ? faSun : faMoon}
+        />
+      </div>
     </div>
   );
 }

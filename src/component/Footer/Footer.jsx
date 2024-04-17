@@ -4,7 +4,7 @@ function Footer() {
   return (
     <>
       <div className="footer-wrapper">
-        <span>Made by Raj Kushwaha</span>
+        <span>Made by Raj Kushwaha❤️</span>
       </div>
     </>
   );

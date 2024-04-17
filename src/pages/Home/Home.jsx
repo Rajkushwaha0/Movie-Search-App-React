@@ -12,6 +12,7 @@ function Home() {
     "mirzapur",
     "dil bechara"
   );
+
   return (
     <>
       <div className="movie-card-wrapper">
